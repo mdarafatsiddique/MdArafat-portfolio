@@ -642,8 +642,6 @@ h1 em {
   transform: translateY(-6px);
 }
 
-.principle-number,
-.service-index,
 .project-number {
   color: #9098aa;
   font-size: 0.68rem;
@@ -653,7 +651,7 @@ h1 em {
 
 .principle > i {
   display: block;
-  margin: 2.2rem 0 1.2rem;
+  margin: 0 0 1.2rem;
   color: var(--indigo);
   font-size: 1.45rem;
 }
@@ -727,16 +725,11 @@ h1 em {
   transform: translateY(-7px);
 }
 
-.service-index {
-  position: relative;
-  color: var(--cyan);
-}
-
 .service-icon {
   display: grid;
   width: 48px;
   height: 48px;
-  margin: 1.8rem 0 1.2rem;
+  margin: 0 0 1.2rem;
   place-items: center;
   border: 1px solid rgba(105, 224, 228, 0.18);
   border-radius: 12px;
@@ -1561,10 +1554,6 @@ h1 em {
 
   .principle {
     min-height: 0;
-  }
-
-  .principle > i {
-    margin-top: 1.4rem;
   }
 
   .service-card {
