@@ -224,18 +224,18 @@ h1 em {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 78px;
+  min-height: 74px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex: 0 0 auto;
+  gap: 10px;
+  flex: 0 1 auto;
   min-width: 0;
   color: #fff;
   font-family: 'Manrope', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1;
@@ -245,8 +245,10 @@ h1 em {
 .brand img {
   display: block;
   width: auto;
-  height: 46px;
-  max-width: 100%;
+  height: 42px;
+  max-width: 50px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .nav-menu {
@@ -1326,16 +1328,17 @@ h1 em {
   }
 
   .navbar {
-    min-height: 70px;
+    min-height: 64px;
   }
 
   .brand {
     gap: 10px;
-    font-size: clamp(0.9375rem, 3.8vw, 1.0625rem);
+    font-size: 0.9375rem;
   }
 
   .brand img {
-    height: 38px;
+    height: 36px;
+    max-width: 42px;
   }
 
   .menu-toggle {
@@ -1386,7 +1389,7 @@ h1 em {
 
   .hero {
     min-height: 0;
-    padding-top: 5rem;
+    padding-top: 4.75rem;
     padding-bottom: 3.5rem;
     background: radial-gradient(circle at 50% 18%, rgba(90, 69, 181, 0.27), transparent 32%), radial-gradient(circle at 50% 43%, rgba(41, 146, 182, 0.1), transparent 38%), var(--bg);
   }
@@ -1402,10 +1405,6 @@ h1 em {
     gap: 0.75rem;
   }
 
-  .hero-visual {
-    order: -1;
-  }
-
   .hero-copy {
     max-width: none;
     text-align: center;
@@ -1413,10 +1412,6 @@ h1 em {
 
   .hero-copy .eyebrow {
     display: none;
-  }
-
-  .hero-intro {
-    margin-inline: auto;
   }
 
   .hero-actions,
@@ -1435,6 +1430,7 @@ h1 em {
   }
 
   .hero-intro {
+    margin-inline: auto;
     margin-bottom: 1.5rem;
     font-size: 0.94rem;
   }
@@ -1443,6 +1439,7 @@ h1 em {
     display: flex;
     width: 100%;
     min-height: 0;
+    order: -1;
     flex-direction: column;
     align-items: center;
     gap: 0;
@@ -1458,7 +1455,7 @@ h1 em {
     position: relative;
     top: auto;
     left: auto;
-    width: clamp(200px, 60vw, 245px);
+    width: clamp(190px, 55vw, 230px);
     aspect-ratio: 14 / 17;
     transform: none;
   }

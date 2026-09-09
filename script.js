@@ -6,6 +6,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = [...document.querySelectorAll('.nav-link')];
+  const mobileBreakpoint = 768;
   const sections = [...document.querySelectorAll('main section[id]')];
   const heroRole = document.querySelector('.hero-role');
   const projectGrid = document.querySelector('.projects-grid');
@@ -45,7 +46,7 @@
   };
 
   const setMobileMenuStyles = (isOpen) => {
-    if (!navMenu || window.innerWidth > 760) {
+    if (!navMenu || window.innerWidth > mobileBreakpoint) {
       return;
     }
 
@@ -61,7 +62,7 @@
   };
 
   const toggleMenu = () => {
-    if (!menuToggle || !navMenu || window.innerWidth > 760) {
+    if (!menuToggle || !navMenu || window.innerWidth > mobileBreakpoint) {
       return;
     }
 
@@ -427,7 +428,7 @@
   document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', scrollToTarget));
   window.addEventListener('scroll', setHeaderState, { passive: true });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 760) {
+    if (window.innerWidth > mobileBreakpoint) {
       closeMenu();
     }
   });
