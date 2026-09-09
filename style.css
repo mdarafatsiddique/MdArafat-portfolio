@@ -1309,7 +1309,7 @@ h1 em {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .container {
     width: min(var(--container), calc(100% - 2rem));
   }
@@ -1381,8 +1381,26 @@ h1 em {
     gap: 3.5rem;
   }
 
+  .hero-visual {
+    order: -1;
+  }
+
   .hero-copy {
     max-width: none;
+    text-align: center;
+  }
+
+  .hero-copy .eyebrow {
+    justify-content: center;
+  }
+
+  .hero-intro {
+    margin-inline: auto;
+  }
+
+  .hero-actions,
+  .hero-socials {
+    justify-content: center;
   }
 
   .hero h1 {
@@ -1393,6 +1411,11 @@ h1 em {
     width: min(100%, 510px);
     min-height: 510px;
     margin-inline: auto;
+  }
+
+  .hero-stat,
+  .availability-badge {
+    display: none;
   }
 
   .about-grid,
