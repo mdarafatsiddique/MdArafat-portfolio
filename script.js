@@ -139,7 +139,7 @@
       return;
     }
 
-    const roles = ['Front-End Developer', 'Website Designer', 'Landing Page Designer', 'Freelance Developer'];
+    const roles = ['Web Designer | Landing Page Developer'];
     const typingText = document.createElement('span');
     typingText.className = 'typing-text';
     typingText.style.margin = '0';
@@ -413,7 +413,6 @@
   setHeaderState();
   setActiveNavigation('home');
   setupSectionObserver();
-  setupTypingAnimation();
   setupScrollReveal();
   setupProjectFilters();
   setupContactForm();
