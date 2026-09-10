@@ -217,16 +217,6 @@
     revealTargets.forEach((target) => revealObserver.observe(target));
   };
 
-  const getProjectCategory = (project) => {
-    if (project.classList.contains('project-portfolio')) {
-      return 'portfolio';
-    }
-    if (project.classList.contains('project-coffee') || project.classList.contains('project-shop')) {
-      return 'ecommerce';
-    }
-    return 'business';
-  };
-
   const setupProjectFilters = () => {
     if (!projectGrid) {
       return;
@@ -240,11 +230,6 @@
     const filterWrap = document.createElement('div');
     filterWrap.className = 'project-filters';
     filterWrap.setAttribute('aria-label', 'Filter projects by category');
-    filterWrap.style.display = 'flex';
-    filterWrap.style.flexWrap = 'wrap';
-    filterWrap.style.justifyContent = 'center';
-    filterWrap.style.gap = '0.55rem';
-    filterWrap.style.margin = '0 auto 2rem';
 
     const filters = [
       ['all', 'All'],
@@ -260,50 +245,51 @@
       button.textContent = label;
       button.dataset.filter = value;
       button.setAttribute('aria-pressed', String(index === 0));
-      button.style.padding = '0.6rem 1rem';
-      button.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-      button.style.borderRadius = '999px';
-      button.style.color = index === 0 ? '#ffffff' : '#9ba3b9';
-      button.style.background = index === 0 ? 'linear-gradient(120deg, #8f65ff, #5d61e9)' : 'rgba(255, 255, 255, 0.035)';
-      button.style.font = '600 0.72rem/1.2 "DM Sans", sans-serif';
-      button.style.cursor = 'pointer';
-      button.style.transition = 'color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease';
-
-      button.addEventListener('mouseenter', () => {
-        if (button.getAttribute('aria-pressed') !== 'true') {
-          button.style.color = '#ffffff';
-          button.style.borderColor = 'rgba(178, 141, 255, 0.45)';
-          button.style.transform = 'translateY(-2px)';
-        }
-      });
-      button.addEventListener('mouseleave', () => {
-        if (button.getAttribute('aria-pressed') !== 'true') {
-          button.style.color = '#9ba3b9';
-          button.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-          button.style.transform = '';
-        }
-      });
-      button.addEventListener('click', () => {
-        [...filterWrap.querySelectorAll('.project-filter')].forEach((filterButton) => {
-          const isSelected = filterButton === button;
-          filterButton.setAttribute('aria-pressed', String(isSelected));
-          filterButton.style.color = isSelected ? '#ffffff' : '#9ba3b9';
-          filterButton.style.background = isSelected ? 'linear-gradient(120deg, #8f65ff, #5d61e9)' : 'rgba(255, 255, 255, 0.035)';
-          filterButton.style.borderColor = isSelected ? 'transparent' : 'rgba(255, 255, 255, 0.1)';
-          filterButton.style.transform = '';
-        });
-
-        projects.forEach((project) => {
-          const shouldShow = value === 'all' || getProjectCategory(project) === value;
-          project.hidden = !shouldShow;
-          project.setAttribute('aria-hidden', String(!shouldShow));
-        });
-      });
 
       filterWrap.appendChild(button);
     });
 
     projectGrid.parentElement.insertBefore(filterWrap, projectGrid);
+    const hideTimers = new Map();
+
+    filterWrap.addEventListener('click', (event) => {
+      const button = event.target.closest('.project-filter');
+      if (!button) {
+        return;
+      }
+
+      const selectedFilter = button.dataset.filter;
+      filterWrap.querySelectorAll('.project-filter').forEach((filterButton) => {
+        const isSelected = filterButton === button;
+        filterButton.classList.toggle('is-active', isSelected);
+        filterButton.setAttribute('aria-pressed', String(isSelected));
+      });
+
+      projects.forEach((project) => {
+        const shouldShow = selectedFilter === 'all' || project.dataset.category === selectedFilter;
+        const existingTimer = hideTimers.get(project);
+        if (existingTimer) {
+          window.clearTimeout(existingTimer);
+          hideTimers.delete(project);
+        }
+
+        project.setAttribute('aria-hidden', String(!shouldShow));
+
+        if (shouldShow) {
+          project.hidden = false;
+          window.requestAnimationFrame(() => project.classList.remove('is-filtered-out'));
+          return;
+        }
+
+        project.classList.add('is-filtered-out');
+        hideTimers.set(project, window.setTimeout(() => {
+          project.hidden = true;
+          hideTimers.delete(project);
+        }, 220));
+      });
+    });
+
+    filterWrap.querySelector('[data-filter="all"]')?.classList.add('is-active');
   };
 
   const setupContactForm = () => {

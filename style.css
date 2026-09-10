@@ -1118,6 +1118,38 @@ h1 em {
   font-size: 0.92rem;
 }
 
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0 auto 2rem;
+}
+
+.project-filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.035);
+  font: 600 0.72rem/1.2 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.project-filter:hover,
+.project-filter:focus-visible {
+  border-color: rgba(178, 141, 255, 0.45);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.project-filter.is-active {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(120deg, var(--purple), var(--indigo));
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1132,7 +1164,13 @@ h1 em {
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-  transition: transform 250ms var(--ease), border-color 250ms ease, box-shadow 250ms ease;
+  transition: opacity 220ms ease, transform 220ms var(--ease), border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.project-card.is-filtered-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.98);
 }
 
 .project-card:hover {
