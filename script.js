@@ -78,6 +78,13 @@
       return;
     }
 
+    if (targetId === '#top') {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+      closeMenu();
+      return;
+    }
+
     const target = document.querySelector(targetId);
     if (!target) {
       return;
