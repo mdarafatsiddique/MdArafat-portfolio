@@ -355,36 +355,6 @@
     });
   };
 
-  const setupContactDetails = () => {
-    const details = document.querySelector('.contact-details');
-    if (!details) {
-      return;
-    }
-
-    const updateDetail = (selector, href, value) => {
-      const detail = details.querySelector(selector);
-      const valueContainer = detail?.querySelector('span');
-      if (!detail || !valueContainer) {
-        return;
-      }
-
-      detail.href = href;
-      const valueNode = valueContainer.lastChild;
-      if (valueNode) {
-        valueNode.nodeValue = value;
-      }
-    };
-
-    updateDetail('a[href^="mailto:"]', 'mailto:arafat848141@gmail.com', 'arafat848141@gmail.com');
-    updateDetail('a[href^="tel:"]', 'tel:+8801927835212', '01927835212');
-
-    const locationValue = details.querySelector(':scope > div span');
-    const locationText = locationValue?.lastChild;
-    if (locationText) {
-      locationText.nodeValue = 'Dhaka, Bangladesh';
-    }
-  };
-
   const setupCopyright = () => {
     if (footerCopyright) {
       footerCopyright.innerHTML = `&copy; ${new Date().getFullYear()} Md. Arafat Siddique. All rights reserved.`;
@@ -440,7 +410,6 @@
   setupScrollReveal();
   setupProjectFilters();
   setupContactForm();
-  setupContactDetails();
   setupCopyright();
   setupSocialIcons();
   setupConfirmedSocialLinks();
