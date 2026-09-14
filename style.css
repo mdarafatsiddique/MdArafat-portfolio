@@ -494,8 +494,8 @@ h1 em {
 .profile-frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
 }
 
 .visual-ring,
@@ -626,6 +626,10 @@ h1 em {
 }
 
 /* About */
+.about {
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -668,7 +672,7 @@ h1 em {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 5rem;
+  margin-top: clamp(3rem, 5vw, 4rem);
 }
 
 .principle {
@@ -988,7 +992,8 @@ h1 em {
 .project-visual {
   position: relative;
   display: grid;
-  min-height: 290px;
+  min-height: 0;
+  aspect-ratio: 2.1 / 1;
   overflow: hidden;
   place-items: center;
   transition: transform 300ms var(--ease);
@@ -996,6 +1001,21 @@ h1 em {
 
 .project-card:hover .project-visual {
   transform: scale(1.025);
+}
+
+.project-screenshot {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-visual::before,
+.project-visual::after {
+  display: none;
 }
 
 .project-visual::before,
@@ -1044,6 +1064,10 @@ h1 em {
 .project-hotel .project-visual { background: linear-gradient(125deg, #1e2b49, #536d91); }
 .project-shop .project-visual { background: linear-gradient(125deg, #675aa0, #a490d4); }
 .project-portfolio .project-visual { background: linear-gradient(125deg, #22394a, #3188a0); }
+
+.project-card .project-visual {
+  background: var(--bg-soft);
+}
 
 .mock-browser {
   position: absolute;
@@ -1163,6 +1187,198 @@ h1 em {
   transform: translate(2px, -2px);
 }
 
+/* Testimonials */
+.testimonials {
+  padding-block: clamp(4.25rem, 7vw, 7rem);
+  background: linear-gradient(145deg, #0b0e1a, #11152a 55%, #0b0e19);
+}
+
+.testimonials h2,
+.pricing h2 {
+  font-size: clamp(2.25rem, 4vw, 3.8rem);
+}
+
+.testimonials-intro,
+.pricing-intro {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.testimonials-intro > p:last-child,
+.pricing-intro > p:last-child {
+  margin: 1rem auto 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.testimonials-grid,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.8rem;
+}
+
+.testimonial-card,
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition: transform 250ms var(--ease), border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.testimonial-card {
+  min-height: 235px;
+  padding: 1.45rem;
+}
+
+.testimonial-card:hover,
+.pricing-card:hover {
+  border-color: rgba(143, 101, 255, 0.42);
+  box-shadow: 0 18px 45px rgba(4, 5, 15, 0.3), 0 0 30px rgba(92, 76, 198, 0.08);
+  transform: translateY(-6px);
+}
+
+.testimonial-quote {
+  display: block;
+  height: 42px;
+  color: var(--purple-bright);
+  font-family: 'Manrope', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  color: #dce0ed;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.testimonial-meta {
+  display: grid;
+  gap: 0.08rem;
+  margin-top: auto;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--line);
+}
+
+.testimonial-meta strong {
+  color: #f0f1f7;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+}
+
+.testimonial-meta span {
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Pricing */
+.pricing {
+  padding-block: clamp(4.25rem, 7vw, 7rem);
+  background: var(--bg-soft);
+}
+
+.pricing-card {
+  min-height: 390px;
+  padding: 1.5rem;
+}
+
+.pricing-card-popular {
+  border-color: rgba(143, 101, 255, 0.56);
+  background: linear-gradient(155deg, rgba(143, 101, 255, 0.18), rgba(18, 23, 40, 0.9) 48%);
+  box-shadow: 0 18px 45px rgba(47, 30, 118, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--purple), var(--indigo));
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.pricing-plan {
+  margin-bottom: 0.95rem;
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  margin-bottom: 1.15rem;
+  color: #f0f1f7;
+  font-size: 1.22rem;
+  letter-spacing: -0.025em;
+}
+
+.pricing-price {
+  display: grid;
+  gap: 0.12rem;
+  margin-bottom: 1.25rem;
+}
+
+.pricing-price span {
+  color: var(--muted);
+  font-size: 0.73rem;
+}
+
+.pricing-price strong {
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.pricing-features {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 1.15rem 0 0;
+  border-top: 1px solid var(--line);
+  color: #b7bfd1;
+  font-size: 0.84rem;
+  list-style: none;
+}
+
+.pricing-features li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.pricing-features li::before {
+  flex: 0 0 auto;
+  content: '\2713';
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pricing-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.1rem;
+}
 /* Contact / CTA */
 .contact {
   overflow: hidden;
@@ -1441,6 +1657,11 @@ h1 em {
 }
 
 @media (max-width: 1000px) {
+  .testimonials-grid,
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-grid {
     grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
     gap: 2.5rem;
@@ -1473,6 +1694,21 @@ h1 em {
 }
 
 @media (max-width: 768px) {
+  .testimonials-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .testimonial-card,
+  .pricing-card {
+    min-height: 0;
+  }
+
+  .pricing-cta {
+    margin-top: 2rem;
+  }
+
   .container {
     width: min(var(--container), calc(100% - 2rem));
   }
@@ -1665,6 +1901,14 @@ h1 em {
     gap: 2.5rem;
   }
 
+  .about {
+    padding-block: 3.75rem;
+  }
+
+  .about-grid {
+    gap: 2rem;
+  }
+
   .principles-grid,
   .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1769,7 +2013,11 @@ h1 em {
   }
 
   .project-visual {
-    min-height: 245px;
+    min-height: 0;
+  }
+
+  .project-screenshot {
+    object-position: center;
   }
 
   .project-content {
