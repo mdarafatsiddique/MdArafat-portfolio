@@ -1615,6 +1615,13 @@ h1 em {
   font-size: 0.72rem;
 }
 
+.footer-logo {
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
 .site-footer .footer-socials {
   gap: 0.55rem;
 }
@@ -2048,6 +2055,11 @@ h1 em {
 
   .footer-inner {
     gap: 1rem;
+  }
+
+  .footer-logo {
+    width: 38px;
+    height: 38px;
   }
 
   .footer-socials {

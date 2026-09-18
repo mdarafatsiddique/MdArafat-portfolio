@@ -307,7 +307,7 @@
   const setupConfirmedSocialLinks = () => {
     const profiles = {
       'fa-github': ['https://github.com/mdarafatsiddique', 'GitHub Profile'],
-      'fa-facebook-f': ['https://www.facebook.com/arafat.siddique02', 'Facebook Profile'],
+      'fa-facebook-f': ['https://www.facebook.com/MDARAFATSIDDIQUEAI', 'Facebook Profile'],
       'fa-instagram': ['https://www.instagram.com/mdarafatsiddiqueai/', 'Instagram Profile'],
       'fa-linkedin-in': ['https://www.linkedin.com/in/mdarafatsiddiquebd/', 'LinkedIn Profile']
     };

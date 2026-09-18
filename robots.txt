@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdarafatsiddique.github.io/MdArafat-portfolio/sitemap.xml
