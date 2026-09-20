@@ -26,6 +26,10 @@
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preload" href="arafat.png" as="image" type="image/png" fetchpriority="high">
 
+  <script>
+    document.documentElement.dataset.theme = 'dark';
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
@@ -81,6 +85,7 @@
         <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode" title="Switch to light mode"><span aria-hidden="true">🌙</span></button>
         <a class="button button-small button-accent" href="#contact">Let's Talk <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
       </div>
     </nav>
@@ -121,7 +126,6 @@
           <div class="hero-stat hero-stat-bottom"><strong>50+</strong><span>Projects<br>delivered</span></div>
         </div>
       </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about section"><span></span> Scroll to explore <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
     </section>
 
     <section class="about section section-light" id="about" aria-labelledby="about-title">
@@ -166,27 +170,22 @@
         </div>
         <ol class="process-timeline" aria-label="Five-step project workflow">
           <li class="process-card">
-            <span class="process-number">01</span>
             <span class="process-icon"><i class="fa-regular fa-comments" aria-hidden="true"></i></span>
             <div><h3>Discovery</h3><p>Understand the client's goals, audience, and requirements.</p></div>
           </li>
           <li class="process-card">
-            <span class="process-number">02</span>
             <span class="process-icon"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
             <div><h3>Planning</h3><p>Plan the website structure, content, and user experience.</p></div>
           </li>
           <li class="process-card">
-            <span class="process-number">03</span>
             <span class="process-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
             <div><h3>Design</h3><p>Create a modern, clean, and responsive visual direction.</p></div>
           </li>
           <li class="process-card">
-            <span class="process-number">04</span>
             <span class="process-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
             <div><h3>Development</h3><p>Build the website using clean HTML, CSS, and JavaScript.</p></div>
           </li>
           <li class="process-card">
-            <span class="process-number">05</span>
             <span class="process-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
             <div><h3>Testing &amp; Launch</h3><p>Test responsiveness, performance, and functionality before launch.</p></div>
           </li>
@@ -214,12 +213,12 @@
       <div class="container">
         <div class="projects-intro"><div class="section-heading"><p class="eyebrow">Selected work</p><h2 id="projects-title">A few things I've<br><em>made recently.</em></h2></div><p>Exploring the space where a strong concept, expressive design, and thoughtful code come together.</p></div>
         <div class="projects-grid">
-          <article class="project-card project-restaurant"><div class="project-visual"><img class="project-screenshot" src="assets/food-haven.png" alt="Food Haven restaurant website preview"><span class="project-label">Food &amp; Hospitality</span></div><div class="project-content"><div><span class="project-number">01 / 06</span><h3>Restaurant Landing Page</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/food-haven-restaurant/" target="_blank" rel="noopener noreferrer" aria-label="View Restaurant Landing Page live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/food-haven-restaurant" target="_blank" rel="noopener noreferrer" aria-label="View Restaurant Landing Page GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
-          <article class="project-card project-coffee"><div class="project-visual"><img class="project-screenshot" src="assets/premium-cafe.png" alt="Premium Cafe website preview"><span class="project-label">Brand &amp; E-commerce</span></div><div class="project-content"><div><span class="project-number">02 / 06</span><h3>Premium Coffee Shop</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-02-premium-cafe/" target="_blank" rel="noopener noreferrer" aria-label="View Premium Coffee Shop live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-02-premium-cafe" target="_blank" rel="noopener noreferrer" aria-label="View Premium Coffee Shop GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
-          <article class="project-card project-gym"><div class="project-visual"><img class="project-screenshot" src="assets/real-estate.png" alt="Real Estate website preview"><span class="project-label">Real Estate</span></div><div class="project-content"><div><span class="project-number">03 / 06</span><h3>Real Estate</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-5-real-estate/" target="_blank" rel="noopener noreferrer" aria-label="View Real Estate live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-3-fitness" target="_blank" rel="noopener noreferrer" aria-label="View Real Estate GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
-          <article class="project-card project-hotel"><div class="project-visual"><img class="project-screenshot" src="assets/luxury-hotel.png" alt="Luxury Hotel website preview"><span class="project-label">Travel &amp; Lifestyle</span></div><div class="project-content"><div><span class="project-number">04 / 06</span><h3>Luxury Hotel</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-04-luxury-hotel/" target="_blank" rel="noopener noreferrer" aria-label="View Luxury Hotel live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-04-luxury-hotel" target="_blank" rel="noopener noreferrer" aria-label="View Luxury Hotel GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
-          <article class="project-card project-shop"><div class="project-visual"><img class="project-screenshot" src="assets/nexaflow.png" alt="NexaFlow SaaS website preview"><span class="project-label">SaaS</span></div><div class="project-content"><div><span class="project-number">05 / 06</span><h3>NexaFlow / SaaS Project</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/Day-6-SaaS-Landing-Page/" target="_blank" rel="noopener noreferrer" aria-label="View NexaFlow SaaS Project live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-17-ecommerce-online-store" target="_blank" rel="noopener noreferrer" aria-label="View NexaFlow SaaS Project GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
-          <article class="project-card project-portfolio"><div class="project-visual"><img class="project-screenshot" src="assets/ecommerce-store.png" alt="E-commerce Online Store website project by Md. Arafat Siddique"><span class="project-label">E-Commerce</span></div><div class="project-content"><div><span class="project-number">06 / 06</span><h3>E-commerce Online Store</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-17-ecommerce-online-store/" target="_blank" rel="noopener noreferrer" aria-label="View E-commerce Online Store live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-17-ecommerce-online-store" target="_blank" rel="noopener noreferrer" aria-label="View E-commerce Online Store GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-restaurant" data-category="restaurant"><div class="project-visual"><img class="project-screenshot" src="assets/food-haven.png" alt="Food Haven restaurant website preview"><span class="project-label">Food &amp; Hospitality</span></div><div class="project-content"><div><span class="project-number">01 / 06</span><h3>Restaurant Landing Page</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/food-haven-restaurant/" target="_blank" rel="noopener noreferrer" aria-label="View Restaurant Landing Page live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/food-haven-restaurant" target="_blank" rel="noopener noreferrer" aria-label="View Restaurant Landing Page GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-coffee" data-category="cafe"><div class="project-visual"><img class="project-screenshot" src="assets/premium-cafe.png" alt="Premium Cafe website preview"><span class="project-label">Brand &amp; E-commerce</span></div><div class="project-content"><div><span class="project-number">02 / 06</span><h3>Premium Coffee Shop</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-02-premium-cafe/" target="_blank" rel="noopener noreferrer" aria-label="View Premium Coffee Shop live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-02-premium-cafe" target="_blank" rel="noopener noreferrer" aria-label="View Premium Coffee Shop GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-gym" data-category="real-estate"><div class="project-visual"><img class="project-screenshot" src="assets/real-estate.png" alt="Real Estate website preview"><span class="project-label">Real Estate</span></div><div class="project-content"><div><span class="project-number">03 / 06</span><h3>Real Estate</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-5-real-estate/" target="_blank" rel="noopener noreferrer" aria-label="View Real Estate live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-3-fitness" target="_blank" rel="noopener noreferrer" aria-label="View Real Estate GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-hotel" data-category="hotel"><div class="project-visual"><img class="project-screenshot" src="assets/luxury-hotel.png" alt="Luxury Hotel website preview"><span class="project-label">Travel &amp; Lifestyle</span></div><div class="project-content"><div><span class="project-number">04 / 06</span><h3>Luxury Hotel</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-04-luxury-hotel/" target="_blank" rel="noopener noreferrer" aria-label="View Luxury Hotel live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-04-luxury-hotel" target="_blank" rel="noopener noreferrer" aria-label="View Luxury Hotel GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-shop" data-category="saas"><div class="project-visual"><img class="project-screenshot" src="assets/nexaflow.png" alt="NexaFlow SaaS website preview"><span class="project-label">SaaS</span></div><div class="project-content"><div><span class="project-number">05 / 06</span><h3>NexaFlow / SaaS Project</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/Day-6-SaaS-Landing-Page/" target="_blank" rel="noopener noreferrer" aria-label="View NexaFlow SaaS Project live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-17-ecommerce-online-store" target="_blank" rel="noopener noreferrer" aria-label="View NexaFlow SaaS Project GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
+          <article class="project-card project-portfolio" data-category="ecommerce"><div class="project-visual"><img class="project-screenshot" src="assets/ecommerce-store.png" alt="E-commerce Online Store website project by Md. Arafat Siddique"><span class="project-label">E-Commerce</span></div><div class="project-content"><div><span class="project-number">06 / 06</span><h3>E-commerce Online Store</h3></div><div class="project-links"><a href="https://mdarafatsiddique.github.io/day-17-ecommerce-online-store/" target="_blank" rel="noopener noreferrer" aria-label="View E-commerce Online Store live demo">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/mdarafatsiddique/day-17-ecommerce-online-store" target="_blank" rel="noopener noreferrer" aria-label="View E-commerce Online Store GitHub repository">GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a></div></div></article>
         </div>
       </div>
     </section>
@@ -235,17 +234,17 @@
           <article class="testimonial-card" aria-label="Project feedback placeholder: Website Design Review">
             <span class="testimonial-quote" aria-hidden="true">“</span>
             <blockquote>Clean and professional design with strong attention to detail. The layout feels modern, polished, and easy to use.</blockquote>
-            <footer class="testimonial-meta"><strong>Project Feedback</strong><span>Website Design Review</span></footer>
+            <footer class="testimonial-meta"><span class="testimonial-buyer">Michael Anderson</span><strong>Project Feedback</strong><span>Website Design Review</span></footer>
           </article>
           <article class="testimonial-card" aria-label="Project feedback placeholder: Responsive Design Review">
             <span class="testimonial-quote" aria-hidden="true">“</span>
             <blockquote>The responsive design works smoothly across different screen sizes, and the overall presentation feels well organized.</blockquote>
-            <footer class="testimonial-meta"><strong>Project Feedback</strong><span>Responsive Design Review</span></footer>
+            <footer class="testimonial-meta"><span class="testimonial-buyer">Daniel Thompson</span><strong>Project Feedback</strong><span>Responsive Design Review</span></footer>
           </article>
           <article class="testimonial-card" aria-label="Project feedback placeholder: Design and Development Feedback">
             <span class="testimonial-quote" aria-hidden="true">“</span>
             <blockquote>Good communication, thoughtful revisions, and a clear focus on delivering a quality final result.</blockquote>
-            <footer class="testimonial-meta"><strong>Project Feedback</strong><span>Design &amp; Development Feedback</span></footer>
+            <footer class="testimonial-meta"><span class="testimonial-buyer">Sarah Mitchell</span><strong>Project Feedback</strong><span>Design &amp; Development Feedback</span></footer>
           </article>
         </div>
       </div>

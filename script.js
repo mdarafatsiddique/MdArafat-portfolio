@@ -5,6 +5,8 @@
   const header = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  const themeIcon = themeToggle?.querySelector('span');
   const navLinks = [...document.querySelectorAll('.nav-link')];
   const mobileBreakpoint = 768;
   const sections = [...document.querySelectorAll('main section[id]')];
@@ -13,6 +15,21 @@
   const footerCopyright = document.querySelector('.footer-inner p');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
+
+  const setTheme = (theme) => {
+    const isLight = theme === 'light';
+    document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+
+    if (themeToggle && themeIcon) {
+      themeIcon.textContent = isLight ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      themeToggle.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+  };
+
+  const toggleTheme = () => {
+    setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+  };
 
   const setHeaderState = () => {
     if (!header) {
@@ -154,13 +171,7 @@
   };
 
   const getProjectCategory = (project) => {
-    if (project.classList.contains('project-portfolio')) {
-      return 'portfolio';
-    }
-    if (project.classList.contains('project-coffee') || project.classList.contains('project-shop')) {
-      return 'ecommerce';
-    }
-    return 'business';
+    return project.dataset.category || '';
   };
 
   const setupProjectFilters = () => {
@@ -176,17 +187,15 @@
     const filterWrap = document.createElement('div');
     filterWrap.className = 'project-filters';
     filterWrap.setAttribute('aria-label', 'Filter projects by category');
-    filterWrap.style.display = 'flex';
-    filterWrap.style.flexWrap = 'wrap';
-    filterWrap.style.justifyContent = 'center';
-    filterWrap.style.gap = '0.55rem';
-    filterWrap.style.margin = '0 auto 2rem';
 
     const filters = [
       ['all', 'All'],
-      ['business', 'Business'],
-      ['ecommerce', 'E-commerce'],
-      ['portfolio', 'Portfolio']
+      ['restaurant', 'Restaurant'],
+      ['cafe', 'Cafe'],
+      ['real-estate', 'Real Estate'],
+      ['hotel', 'Hotel'],
+      ['saas', 'SaaS'],
+      ['ecommerce', 'E-Commerce']
     ];
 
     filters.forEach(([value, label], index) => {
@@ -196,26 +205,27 @@
       button.textContent = label;
       button.dataset.filter = value;
       button.setAttribute('aria-pressed', String(index === 0));
+      button.classList.toggle('is-active', index === 0);
       button.style.padding = '0.6rem 1rem';
-      button.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+      button.style.border = '1px solid var(--line)';
       button.style.borderRadius = '999px';
-      button.style.color = index === 0 ? '#ffffff' : '#9ba3b9';
-      button.style.background = index === 0 ? 'linear-gradient(120deg, #8f65ff, #5d61e9)' : 'rgba(255, 255, 255, 0.035)';
+      button.style.color = index === 0 ? '#ffffff' : 'var(--muted)';
+      button.style.background = index === 0 ? 'linear-gradient(120deg, var(--purple), var(--indigo))' : 'var(--filter-bg)';
       button.style.font = '600 0.72rem/1.2 "DM Sans", sans-serif';
       button.style.cursor = 'pointer';
       button.style.transition = 'color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease';
 
       button.addEventListener('mouseenter', () => {
         if (button.getAttribute('aria-pressed') !== 'true') {
-          button.style.color = '#ffffff';
-          button.style.borderColor = 'rgba(178, 141, 255, 0.45)';
+          button.style.color = 'var(--filter-hover-text)';
+          button.style.borderColor = 'var(--filter-hover-border)';
           button.style.transform = 'translateY(-2px)';
         }
       });
       button.addEventListener('mouseleave', () => {
         if (button.getAttribute('aria-pressed') !== 'true') {
-          button.style.color = '#9ba3b9';
-          button.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          button.style.color = 'var(--muted)';
+          button.style.borderColor = 'var(--line)';
           button.style.transform = '';
         }
       });
@@ -223,8 +233,9 @@
         [...filterWrap.querySelectorAll('.project-filter')].forEach((filterButton) => {
           const isSelected = filterButton === button;
           filterButton.setAttribute('aria-pressed', String(isSelected));
-          filterButton.style.color = isSelected ? '#ffffff' : '#9ba3b9';
-          filterButton.style.background = isSelected ? 'linear-gradient(120deg, #8f65ff, #5d61e9)' : 'rgba(255, 255, 255, 0.035)';
+          filterButton.classList.toggle('is-active', isSelected);
+          filterButton.style.color = isSelected ? '#ffffff' : 'var(--muted)';
+          filterButton.style.background = isSelected ? 'linear-gradient(120deg, var(--purple), var(--indigo))' : 'var(--filter-bg)';
           filterButton.style.borderColor = isSelected ? 'transparent' : 'rgba(255, 255, 255, 0.1)';
           filterButton.style.transform = '';
         });
@@ -331,6 +342,7 @@
   };
 
   menuToggle?.addEventListener('click', toggleMenu);
+  themeToggle?.addEventListener('click', toggleTheme);
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') {
       closeMenu({ returnFocus: true });
@@ -344,6 +356,7 @@
     }
   });
 
+  setTheme('dark');
   setHeaderState();
   setActiveNavigation('home');
   setupSectionObserver();
