@@ -13,6 +13,16 @@
   const projectGrid = document.querySelector('.projects-grid');
   const contactForm = document.querySelector('.contact-form');
   const footerCopyright = document.querySelector('.footer-inner p');
+  const galleryModal = document.querySelector('[data-gallery-modal]');
+  const galleryTrigger = document.querySelector('.gallery-trigger');
+  const galleryClose = document.querySelector('[data-gallery-close]');
+  const galleryGrid = document.querySelector('[data-gallery-grid]');
+  const galleryViewer = document.querySelector('[data-gallery-viewer]');
+  const galleryViewerImage = document.querySelector('[data-gallery-viewer-image]');
+  const galleryViewerCaption = document.querySelector('[data-gallery-viewer-caption]');
+  const galleryViewerBack = document.querySelector('[data-gallery-viewer-back]');
+  const galleryPrevious = document.querySelector('[data-gallery-previous]');
+  const galleryNext = document.querySelector('[data-gallery-next]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
 
@@ -133,7 +143,7 @@
   };
 
   const setupScrollReveal = () => {
-    const revealTargets = [...document.querySelectorAll('.hero-copy, .hero-visual, .section-heading, .about-copy, .principle, .service-card, .skill-item, .project-card, .contact-copy, .contact-form, .footer-inner')];
+    const revealTargets = [...document.querySelectorAll('.hero-copy, .hero-visual, .section-heading, .about-copy > p, .about-actions, .principle, .service-card, .skill-item, .project-card, .contact-copy, .contact-form, .footer-inner')];
     if (!revealTargets.length) {
       return;
     }
@@ -309,6 +319,81 @@
     });
   };
 
+  const setupGalleryModal = () => {
+    if (!galleryModal || !galleryTrigger || !galleryClose || !galleryGrid || !galleryViewer || !galleryViewerImage || !galleryViewerCaption) {
+      return;
+    }
+
+    const thumbnails = [...galleryGrid.querySelectorAll('.gallery-thumb')];
+    const lastFocusedElement = { current: null };
+    let activeImageIndex = 0;
+
+    const showViewerImage = (index) => {
+      activeImageIndex = (index + thumbnails.length) % thumbnails.length;
+      const image = thumbnails[activeImageIndex].querySelector('img');
+      const caption = thumbnails[activeImageIndex].closest('.gallery-card')?.querySelector('figcaption')?.textContent || '';
+      if (!image) {
+        return;
+      }
+
+      galleryViewerImage.src = image.currentSrc || image.src;
+      galleryViewerImage.alt = image.alt;
+      galleryViewerImage.width = image.width;
+      galleryViewerImage.height = image.height;
+      galleryViewerCaption.textContent = caption;
+      galleryGrid.hidden = true;
+      galleryViewer.hidden = false;
+      galleryViewerImage.focus();
+    };
+
+    const showGrid = () => {
+      galleryViewer.hidden = true;
+      galleryGrid.hidden = false;
+      thumbnails[activeImageIndex]?.focus();
+    };
+
+    const closeGallery = () => {
+      galleryModal.classList.remove('is-open');
+      body.classList.remove('is-modal-open');
+      galleryModal.hidden = true;
+      showGrid();
+      lastFocusedElement.current?.focus();
+    };
+
+    const openGallery = () => {
+      lastFocusedElement.current = document.activeElement;
+      galleryModal.hidden = false;
+      body.classList.add('is-modal-open');
+      galleryModal.classList.add('is-open');
+      galleryClose.focus();
+    };
+
+    galleryTrigger.addEventListener('click', openGallery);
+    galleryClose.addEventListener('click', closeGallery);
+    galleryModal.addEventListener('click', (event) => {
+      if (event.target === galleryModal) {
+        closeGallery();
+      }
+    });
+    thumbnails.forEach((thumbnail, index) => thumbnail.addEventListener('click', () => showViewerImage(index)));
+    galleryViewerBack?.addEventListener('click', showGrid);
+    galleryPrevious?.addEventListener('click', () => showViewerImage(activeImageIndex - 1));
+    galleryNext?.addEventListener('click', () => showViewerImage(activeImageIndex + 1));
+    document.addEventListener('keydown', (event) => {
+      if (galleryModal.hidden) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        closeGallery();
+      }
+
+      if (!galleryViewer.hidden && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
+        showViewerImage(activeImageIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+  };
+
   const setupCopyright = () => {
     if (footerCopyright) {
       footerCopyright.innerHTML = `&copy; ${new Date().getFullYear()} Md. Arafat Siddique. All rights reserved.`;
@@ -363,6 +448,7 @@
   setupScrollReveal();
   setupProjectFilters();
   setupContactForm();
+  setupGalleryModal();
   setupCopyright();
   setupConfirmedSocialLinks();
 })();
