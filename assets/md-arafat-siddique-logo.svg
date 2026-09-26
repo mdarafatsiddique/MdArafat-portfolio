@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">AS Premium Monogram Logo</title>
+  <desc id="desc">Premium silver A and gold S monogram with a circular gold halo on transparent background.</desc>
+
+  <defs>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="20%" stop-color="#d9dde2"/>
+      <stop offset="48%" stop-color="#8f969e"/>
+      <stop offset="72%" stop-color="#f3f4f5"/>
+      <stop offset="100%" stop-color="#7f868e"/>
+    </linearGradient>
+
+    <linearGradient id="silverDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f3338"/>
+      <stop offset="45%" stop-color="#6f767f"/>
+      <stop offset="100%" stop-color="#111317"/>
+    </linearGradient>
+
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3b0"/>
+      <stop offset="18%" stop-color="#f7cf63"/>
+      <stop offset="45%" stop-color="#c88a22"/>
+      <stop offset="72%" stop-color="#f4c85b"/>
+      <stop offset="100%" stop-color="#8a5410"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Outer premium halo -->
+  <circle cx="500" cy="500" r="365" fill="none" stroke="url(#gold)" stroke-width="16" opacity="0.95"/>
+  <circle cx="500" cy="500" r="341" fill="none" stroke="#b87819" stroke-width="2" opacity="0.45"/>
+
+  <!-- Monogram group -->
+  <g filter="url(#softShadow)">
+    <!-- A -->
+    <path d="M210 790 L470 205 Q500 145 530 205 L790 790 L690 790 L620 635 L378 635 L308 790 Z
+             M420 545 L500 360 L580 545 Z"
+          fill="url(#silver)" fill-rule="evenodd"/>
+
+    <!-- A inner depth -->
+    <path d="M378 635 L420 545 L500 360 L500 465 L455 568 L620 568 L650 635 Z"
+          fill="url(#silverDark)" opacity="0.62"/>
+
+    <!-- S ribbon -->
+    <path d="M760 330
+             C700 275 590 260 510 290
+             C438 316 405 368 433 413
+             C458 454 525 466 607 478
+             C718 494 784 534 794 605
+             C807 699 713 772 590 776
+             C485 779 390 746 322 687
+             L382 618
+             C441 667 513 690 590 687
+             C661 684 705 650 699 610
+             C694 578 659 559 585 547
+             C464 528 377 495 344 425
+             C306 344 361 254 473 214
+             C596 170 727 197 817 268 Z"
+          fill="url(#gold)"/>
+
+    <!-- S highlight -->
+    <path d="M749 317
+             C676 273 584 270 514 298
+             C455 321 422 361 439 396
+             C452 423 493 440 570 451"
+          fill="none" stroke="#fff2bd" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+  </g>
+</svg>

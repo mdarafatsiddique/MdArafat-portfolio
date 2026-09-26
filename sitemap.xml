@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/</loc>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-portfolio.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-professional.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-profile.jpg</image:loc></image:image>
     <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer.jpg</image:loc></image:image>
     <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer-bangladesh.jpg</image:loc></image:image>
     <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-front-end-developer.jpg</image:loc></image:image>

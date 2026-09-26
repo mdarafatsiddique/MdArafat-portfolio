@@ -396,7 +396,7 @@
 
   const setupCopyright = () => {
     if (footerCopyright) {
-      footerCopyright.innerHTML = `&copy; ${new Date().getFullYear()} Md. Arafat Siddique. All rights reserved.`;
+      footerCopyright.innerHTML = `&copy; ${new Date().getFullYear()} Md Arafat Siddique. All rights reserved.`;
     }
   };
 
