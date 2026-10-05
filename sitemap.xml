@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/</loc>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-portfolio.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-professional.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-profile.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer-bangladesh.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-front-end-developer.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-professional-web-designer.jpg</image:loc></image:image>
-    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-landing-page-designer.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-design-services.jpg</image:loc><image:title>Md Arafat Siddique's web design services</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-modern-website-design.jpg</image:loc><image:title>Modern website design by Md Arafat Siddique</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-responsive-web-design.jpg</image:loc><image:title>Responsive web design by Md Arafat Siddique</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-creative-web-design.jpg</image:loc><image:title>Creative website design portfolio of Md Arafat Siddique</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer-portrait.jpg</image:loc><image:title>Md Arafat Siddique, Web Designer</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-working-at-laptop.jpg</image:loc><image:title>Md Arafat Siddique working at a laptop</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-design-workspace.jpg</image:loc><image:title>Md Arafat Siddique in a web design workspace</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-web-designer-banner.jpg</image:loc><image:title>Web design services from Md Arafat Siddique</image:title></image:image>
+    <image:image><image:loc>https://mdarafatsiddique.github.io/MdArafat-portfolio/assets/md-arafat-siddique-website-design-projects.jpg</image:loc><image:title>Website design projects by Md Arafat Siddique</image:title></image:image>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
